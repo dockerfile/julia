@@ -8,7 +8,10 @@
 FROM dockerfile/ubuntu
 
 # Install Julia.
-RUN apt-get install -y julia
+RUN \
+  apt-get update && \
+  apt-get install -y julia && \
+  rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
 VOLUME ["/data"]
