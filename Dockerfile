@@ -9,6 +9,8 @@ FROM dockerfile/ubuntu
 
 # Install Julia.
 RUN \
+  add-apt-repository -y ppa:staticfloat/juliareleases && \
+  add-apt-repository -y ppa:staticfloat/julia-deps && \
   apt-get update && \
   apt-get install -y julia && \
   rm -rf /var/lib/apt/lists/*
